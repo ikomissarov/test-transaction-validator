@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=passw0rd
+      - POSTGRES_USER=transactionuser
+      - POSTGRES_DB=transactiondb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

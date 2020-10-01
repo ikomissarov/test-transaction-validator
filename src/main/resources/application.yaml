@@ -1,0 +1,21 @@
+spring:
+  main:
+    banner_mode: "OFF"
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/transactiondb}
+    username: ${DB_USERNAME:transactionuser}
+    password: ${DB_PASSWORD:passw0rd}
+  jpa:
+    properties:
+      hibernate:
+        naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: validate
+    show_sql: false
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+
+server:
+  port: 8081
